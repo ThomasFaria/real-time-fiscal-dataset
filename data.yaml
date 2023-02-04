@@ -1,0 +1,83 @@
+COE:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.D.D1._Z._Z._T.XDC._Z.S.V.N._T
+
+DTX:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.C.D5._Z._Z._Z.XDC._Z.S.V.N._T
+
+GIN:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.D.P51G._Z._Z._T.XDC._Z.S.V.N._T
+
+INC:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.D.P2._Z._Z._T.XDC._Z.S.V.N._T
+
+INP:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.C.D.D41._Z._Z._T.XDC._Z.S.V.N._T
+
+KEX:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.P.D.OKE._Z._Z._T.XDC._Z.S.V.N._T
+
+KTR:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.P.C.D9._Z._Z._Z.XDC._Z.S.V.N._T
+
+SCT:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.C.D61._Z._Z._Z.XDC._Z.S.V.N._T
+
+SED:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1._Z.B.B9._Z._Z._Z.XDC._Z.S.V.N._T
+
+SIN:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.D.D3._Z._Z._T.XDC._Z.S.V.N._T
+
+STM:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.D.D632._Z._Z._T.XDC._Z.S.V.N._T
+
+THN:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.D.D62._Z._Z._T.XDC._Z.S.V.N._T
+  
+TIN:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.N.C.D2._Z._Z._Z.XDC._Z.S.V.N._T
+  
+TOE:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.P.D.OTE._Z._Z._T.XDC._Z.S.V.N._T
+
+TOR:
+  Database: GFS
+  Code: Q.N.cc.W0.S13.S1.P.C.OTR._Z._Z._Z.XDC._Z.S.V.N._T
+
+GCN:
+  Database: MNA
+  Code: Q.N.cc.W0.S13.S1.D.P3._Z._Z._T.EUR.V.N
+
+EXN:
+  Database: MNA
+  Code: Q.N.cc.W1.S1.S1.D.P6._Z._Z._Z.EUR.V.N
+
+ITN:
+  Database: MNA
+  Code: Q.N.cc.W0.S1.S1.D.P5.N1G._T._Z.EUR.V.N
+
+PCN:
+  Database: MNA
+  Code: Q.N.cc.W0.S1M.S1.D.P31._Z._Z._T.EUR.V.N
+
+YEN:
+  Database: MNA
+  Code: Q.N.cc.W2.S1.S1.B.B1GQ._Z._Z._Z.EUR.V.N
+
+WGS:
+  Database: MNA
+  Code: Q.N.cc.W2.S1.S1.D.D1._Z._T._Z.EUR.V.N
