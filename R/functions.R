@@ -14,7 +14,7 @@ get_ECB_vintage <- function() {
   return(vintage)
 }
 
-get_dimensions <- function(dataset, data_infos, environement) {
+get_dimensions <- function(dataset, data_infos, env) {
   sublist <- Filter(function(x) x$Database == dataset, data_infos)
 
   splitted_codes <- lapply(sublist, function(x) {
@@ -23,8 +23,8 @@ get_dimensions <- function(dataset, data_infos, environement) {
   splitted_codes <- as.matrix(do.call(cbind, splitted_codes))
 
   dimensions <- split(as.vector(splitted_codes), row(splitted_codes))
-  names(dimensions) <- environment$Data_structure[[dataset]]
-  dimensions$REF_AREA <- environment$Countries
+  names(dimensions) <- env$Data_structure[[dataset]]
+  dimensions$REF_AREA <- env$Countries
   codes <- as.vector(sapply(sublist, function(x) {
     splitted_code <- x$Series_code
   }))

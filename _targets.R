@@ -17,7 +17,7 @@ list(
     format = "file"
   ),
   tar_target(
-    name = env,
+    name = environment,
     command = "environment.yaml",
     format = "file"
   ),
@@ -27,8 +27,8 @@ list(
     format = "rds"
   ),
   tar_target(
-    name = environment,
-    command = yaml::read_yaml(env),
+    name = env,
+    command = yaml::read_yaml(environment),
     format = "rds"
   ),
   tarchetypes::tar_download(
