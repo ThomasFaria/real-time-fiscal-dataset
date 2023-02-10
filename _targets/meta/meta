@@ -1,7 +1,16 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 append_dataset|function|ad2f9421dd471c67|||||||||||||||
-data_info_file|stem||95130c1efe744693|ef46db3751d8e999|-97085056||t19398.669139975s||0|file|local|vector|||0.162||31mcould not find packages styler in library paths 39m
-get_dimensions|function|0b4c4bc14006d1a4|||||||||||||||
-get_ECB_data|function|79520278111bd3f5|||||||||||||||
+data_gfs|stem|c1716aba7d34bead|78cdcc2320e6c48f|debacb8727bafeb8|-1712201978||t19398.6793877797s|d1621918fca08abf|34909|parquet|local|vector|||5.496||
+data_info|stem|05cd2a8288045399|d41b75c338a97583|87769e9e9a1613c1|-1188858223||t19398.672440498s|d8fae47a85037a35|866|rds|local|vector|||0.005||
+data_info_file|stem|61de7204ef8ee150|95130c1efe744693|ef46db3751d8e999|-97085056|data.yaml|t19398.6046983135s|20a0538cbd76a85a|3175|file|local|vector|||0.512||
+data_mna|stem|48ffadc347c01b9a|0c478410e9846231|debacb8727bafeb8|1868184618||t19398.679444488s|b6a239660a8cffa6|10795|parquet|local|vector|||4.486||
+env|stem|094c1a3985649ec4|adf4b638e353599b|595f381eef0fdb47|1194570419||t19398.675396355s|c98679baf4c2e099|315|rds|local|vector|||0.003||
+environment|stem|09b4d6548e5c1458|51f0e7bb640d981b|ef46db3751d8e999|-1843866888|environment.yaml|t19397.8934829429s|136a65928125a5c7|600|file|local|vector|||0.706||
+file|stem|79197d74ebf707be|94e60c845c7817b3|7b365969c28d7d78|-1301001980|real-time-fiscal-database.csv|t19398.6731488996s|9ced24fc17f1dafd|396705263|file|local|vector|||60.339||
+file_url|stem|abe1f709ea4622b6|4c50fdb66af58abe|602c5378d62b59c4|-1202264681|https://minio.lab.sspcloud.fr/tfaria/public/real-time-fiscal-database.csv|t19398.6715252542s||0|url|local|vector|||0.001||
+get_dimensions|function|5931ff6e63c920c8|||||||||||||||
+get_ECB_data|function|a375f4dcc6b99d71|||||||||||||||
 get_ECB_vintage|function|e4330ae81742ee03|||||||||||||||
 get_RTDB|function|472a8c3145288a06|||||||||||||||
+RTDB|stem|b37f5448cebc0f0c|428e8f0796fa898b|294de5d4f00a618f|-1202613||t19398.6796812763s|3024a4b5db5cc720|7173963|parquet|local|vector|||13.143||
+update_db|stem|d522e34fc1bab6b9|c225a42b5ab7f504|9e54206a73ddb3dd|663708764||t19398.6798011911s|595778c3684c3a84|7197127|parquet|local|vector|||2.755||
