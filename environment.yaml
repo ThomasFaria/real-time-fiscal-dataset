@@ -1,4 +1,4 @@
-Countries: ["FR", "DE"]
+Countries: ["I8", "DE", "FR", "IT", "ES", "NL", "BE", "AT", "FI", "PT", "GR", "IE", "SK", "LU", "SI", "LT", "LV", "EE", "CY", "MT", "HR"]
 
 Data_structure:
   GFS:  ["FREQ", "ADJUSTMENT", "REF_AREA", "COUNTERPART_AREA", 
