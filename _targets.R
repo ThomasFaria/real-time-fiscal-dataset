@@ -49,7 +49,7 @@ list(
     command = get_ECB_data("MNA", data_info, env),
   ),
   tar_target(
-    name = update_db,
+    name = updated_db,
     command = append_dataset(list(RTDB, data_gfs, data_mna))
   )
 )
