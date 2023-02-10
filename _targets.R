@@ -8,7 +8,7 @@ tar_option_set(
 )
 
 tar_source(files = "R")
-options(timeout = 5*60)
+options(timeout = 5 * 60)
 
 list(
   tar_target(
@@ -40,14 +40,14 @@ list(
   ),
   tar_target(
     name = data_gfs,
-    command =  get_ECB_data("GFS", data_info, env),
+    command = get_ECB_data("GFS", data_info, env),
   ),
   tar_target(
     name = data_mna,
-    command =  get_ECB_data("MNA", data_info, env),
+    command = get_ECB_data("MNA", data_info, env),
   ),
   tar_target(
     name = update_db,
-    command =  append_dataset(list(RTDB, data_gfs, data_mna))
+    command = append_dataset(list(RTDB, data_gfs, data_mna))
   )
 )
