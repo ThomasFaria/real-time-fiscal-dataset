@@ -24,10 +24,12 @@ list(
   tar_target(
     name = data_info,
     command = yaml::read_yaml(data_info_file),
+    format = "rds"
   ),
   tar_target(
     name = environment,
     command = yaml::read_yaml(env),
+    format = "rds"
   ),
   tarchetypes::tar_download(
     name = file,
