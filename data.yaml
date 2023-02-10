@@ -1,83 +1,146 @@
 COE:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.D.D1._Z._Z._T.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.N.D.D1._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: COE
+  Variable_long: "Gov. compensation" 
+  STO: D1
 
 DTX:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.C.D5._Z._Z._Z.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.N.C.D5._Z._Z._Z.XDC._Z.S.V.N._T
+  Variable_code: DTX
+  Variable_long: "Direct taxes" 
+  STO: D5
 
 GIN:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.D.P51G._Z._Z._T.XDC._Z.S.V.N._T
-
+  Series_code: Q.N.*.W0.S13.S1.N.D.P51G._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: GIN
+  Variable_long: "Gov. investment" 
+  STO: P51G
+ 
 INC:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.D.P2._Z._Z._T.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.N.D.P2._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: INC
+  Variable_long: "Intermediate consumption" 
+  STO: P2
 
 INP:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.C.D.D41._Z._Z._T.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.C.D.D41._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: INP
+  Variable_long: "Interest payments" 
+  STO: D41
 
 KEX:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.P.D.OKE._Z._Z._T.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.P.D.OKE._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: KEX
+  Variable_long: "Other capital expenditure" 
+  STO: OKE
 
 KTR:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.P.C.D9._Z._Z._Z.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.P.C.D9._Z._Z._Z.XDC._Z.S.V.N._T
+  Variable_code: KTR
+  Variable_long: "Capital revenue" 
+  STO: D9
 
 SCT:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.C.D61._Z._Z._Z.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.N.C.D61._Z._Z._Z.XDC._Z.S.V.N._T
+  Variable_code: SCT
+  Variable_long: "Social contributions" 
+  STO: D61
 
 SED:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1._Z.B.B9._Z._Z._Z.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1._Z.B.B9._Z._Z._Z.XDC._Z.S.V.N._T
+  Variable_code: SED
+  Variable_long: "Gov. deficit" 
+  STO: B9
 
 SIN:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.D.D3._Z._Z._T.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.N.D.D3._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: SIN
+  Variable_long: "Gov. subsidies" 
+  STO: D3
 
 STM:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.D.D632._Z._Z._T.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.N.D.D632._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: STM
+  Variable_long: "Social transfers in kind" 
+  STO: D632
 
 THN:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.D.D62._Z._Z._T.XDC._Z.S.V.N._T
-  
+  Series_code: Q.N.*.W0.S13.S1.N.D.D62._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: THN
+  Variable_long: "Social transfers" 
+  STO: D62
+
 TIN:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.N.C.D2._Z._Z._Z.XDC._Z.S.V.N._T
-  
+  Series_code: Q.N.*.W0.S13.S1.N.C.D2._Z._Z._Z.XDC._Z.S.V.N._T
+  Variable_code: TIN
+  Variable_long: "Indirect taxes" 
+  STO: D2
+
 TOE:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.P.D.OTE._Z._Z._T.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.P.D.OTE._Z._Z._T.XDC._Z.S.V.N._T
+  Variable_code: TOE
+  Variable_long: "Total expenditure" 
+  STO: OTE
 
 TOR:
   Database: GFS
-  Code: Q.N.*.W0.S13.S1.P.C.OTR._Z._Z._Z.XDC._Z.S.V.N._T
+  Series_code: Q.N.*.W0.S13.S1.P.C.OTR._Z._Z._Z.XDC._Z.S.V.N._T
+  Variable_code: TOR
+  Variable_long: "Total revenue" 
+  STO: OTR
 
 GCN:
   Database: MNA
-  Code: Q.N.*.W0.S13.S1.D.P3._Z._Z._T.EUR.V.N
+  Series_code: Q.N.*.W0.S13.S1.D.P3._Z._Z._T.EUR.V.N
+  Variable_code: GCN
+  Variable_long: "Gov. consumption" 
+  STO: P3
 
 EXN:
   Database: MNA
-  Code: Q.N.*.W1.S1.S1.D.P6._Z._Z._Z.EUR.V.N
+  Series_code: Q.N.*.W1.S1.S1.D.P6._Z._Z._Z.EUR.V.N
+  Variable_code: EXN
+  Variable_long: "Exports" 
+  STO: P6
 
 ITN:
   Database: MNA
-  Code: Q.N.*.W0.S1.S1.D.P5.N1G._T._Z.EUR.V.N
+  Series_code: Q.N.*.W0.S1.S1.D.P5.N1G._T._Z.EUR.V.N
+  Variable_code: ITN
+  Variable_long: "Total investment" 
+  STO: P5
 
 PCN:
   Database: MNA
-  Code: Q.N.*.W0.S1M.S1.D.P31._Z._Z._T.EUR.V.N
+  Series_code: Q.N.*.W0.S1M.S1.D.P31._Z._Z._T.EUR.V.N
+  Variable_code: PCN
+  Variable_long: "Private consumption" 
+  STO: P31
 
 YEN:
   Database: MNA
-  Code: Q.N.*.W2.S1.S1.B.B1GQ._Z._Z._Z.EUR.V.N
+  Series_code: Q.N.*.W2.S1.S1.B.B1GQ._Z._Z._Z.EUR.V.N
+  Variable_code: YEN
+  Variable_long: "GDP" 
+  STO: B1GQ
 
 WGS:
   Database: MNA
-  Code: Q.N.*.W2.S1.S1.D.D1._Z._T._Z.EUR.V.N
+  Series_code: Q.N.*.W2.S1.S1.D.D1._Z._T._Z.EUR.V.N
+  Variable_code: WGS
+  Variable_long: "Wages and salaries" 
+  STO: D1
