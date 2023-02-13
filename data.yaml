@@ -104,15 +104,15 @@ TOR:
   STO: OTR
 
 GCN:
-  Database: MNA
-  Series_code: Q.N.*.W0.S13.S1.D.P3._Z._Z._T.EUR.V.N
+  Database: namq_10_gdp
+  Series_code: CP_MEUR.NSA.P3_S13.*
   Variable_code: GCN
   Variable_long: "Gov. consumption" 
-  STO: P3
+  STO: P3_S13
 
 EXN:
-  Database: MNA
-  Series_code: Q.N.*.W1.S1.S1.D.P6._Z._Z._Z.EUR.V.N
+  Database: namq_10_gdp
+  Series_code: Q.CP_MEUR.NSA.P6.*
   Variable_code: EXN
   Variable_long: "Exports" 
   STO: P6
@@ -125,22 +125,22 @@ ITN:
   STO: P5
 
 PCN:
-  Database: MNA
-  Series_code: Q.N.*.W0.S1M.S1.D.P31._Z._Z._T.EUR.V.N
+  Database: namq_10_gdp
+  Series_code: Q.CP_MEUR.NSA.P31_S14_S15.*
   Variable_code: PCN
   Variable_long: "Private consumption" 
-  STO: P31
+  STO: P31_S14_S15
 
 YEN:
-  Database: MNA
-  Series_code: Q.N.*.W2.S1.S1.B.B1GQ._Z._Z._Z.EUR.V.N
+  Database: namq_10_gdp
+  Series_code: Q.CP_MEUR.NSA.B1GQ.*
   Variable_code: YEN
   Variable_long: "GDP" 
   STO: B1GQ
 
 WGS:
-  Database: MNA
-  Series_code: Q.N.*.W2.S1.S1.D.D1._Z._T._Z.EUR.V.N
+  Database: namq_10_gdp
+  Series_code: Q.CP_MEUR.NSA.D1.*
   Variable_code: WGS
   Variable_long: "Wages and salaries" 
   STO: D1
