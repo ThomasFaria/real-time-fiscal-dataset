@@ -1,0 +1,6 @@
+GFS:
+  script: run_gfs.R
+  store: store_gfs
+MNA:
+  script: run_mna.R
+  store: store_mna
