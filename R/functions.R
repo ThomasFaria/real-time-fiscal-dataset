@@ -24,7 +24,13 @@ get_dimensions <- function(dataset, data_infos, env) {
 
   dimensions <- split(as.vector(splitted_codes), row(splitted_codes))
   names(dimensions) <- env$Data_structure[[dataset]]
-  dimensions$REF_AREA <- env$Countries
+  
+  if (dataset == "GFS") {
+    dimensions$REF_AREA <- env$Countries
+  }else if (dataset == "namq_10_gdp") {
+    dimensions$geo <- env$Countries
+  }
+  
   codes <- as.vector(sapply(sublist, function(x) {
     splitted_code <- x$Series_code
   }))
@@ -47,8 +53,8 @@ get_ECB_data <- function(dataset, data_infos, environement) {
     )
   ][grepl(paste0(dimensions$Codes, collapse = "|"), series_code)]
 
-  data.table::setnames(data, c("dataset_code", "series_code", "indexed_at", "period", "REF_AREA", "Reference area", "value"),
-    c("Database", "Series_code", "Snapshot_date", "Date", "Country_code", "Country_long", "Value"),
+  data.table::setnames(data, c("dataset_code", "series_code", "indexed_at", "period", "REF_AREA", "Reference area", "Stocks, Transactions, Other Flows", "value"),
+    c("Database", "Series_code", "Snapshot_date", "Date", "Country_code", "Country_long", "Name", "Value"),
     skip_absent = TRUE
   )
 
@@ -62,8 +68,45 @@ get_ECB_data <- function(dataset, data_infos, environement) {
   data[, ECB_vintage := vintage]
   return(data[, .(
     Database, Series_code, Snapshot_date, ECB_vintage, Country_code, Country_long,
-    STO, `Stocks, Transactions, Other Flows`, Variable_code, Variable_long, Date, Value
+    STO, Name, Variable_code, Variable_long, Date, Value
   )])
+}
+
+get_Eurostat_data <- function(dataset, data_infos, environement) {
+  
+  dimensions <- get_dimensions(dataset, data_infos, environement)
+  
+  data <- rdbnomics::rdb(
+    provider_code = "Eurostat",
+    dataset_code = dataset,
+    dimensions = dimensions$Dim
+  )[
+    , .(
+      dataset_code, series_code, indexed_at, period, na_item,
+      `National accounts indicator (ESA 2010)`,
+      `Geopolitical entity (reporting)`, geo, value
+    )
+  ][grepl(paste0(dimensions$Codes, collapse = "|"), series_code)]
+  
+  data.table::setnames(data, 
+                       c("dataset_code", "series_code", "indexed_at", "period", "geo", "Geopolitical entity (reporting)", "National accounts indicator (ESA 2010)", "na_item", "value"),
+                       c("Database", "Series_code", "Snapshot_date", "Date", "Country_code", "Country_long", "Name", "STO", "Value"),
+                       skip_absent = TRUE
+  )
+  
+  sublist <- Filter(function(x) x$Database == dataset, data_infos)
+  
+  join_dt <- data.table::data.table(do.call(rbind, lapply(sublist, data.frame, stringsAsFactors = FALSE)))
+  
+  data <- merge(data, join_dt[, .(STO, Variable_code, Variable_long)], by = "STO")
+  
+  vintage <- get_ECB_vintage()
+  data[, ECB_vintage := vintage]
+  return(data[, .(
+    Database, Series_code, Snapshot_date, ECB_vintage, Country_code, Country_long,
+    STO, Name, Variable_code, Variable_long, Date, Value
+  )])
+  
 }
 
 get_RTDB <- function(file) {

@@ -7,7 +7,4 @@ Data_structure:
          "EXPENDITURE", "UNIT_MEASURE", "CURRENCY_DENOM",
          "VALUATION", "PRICES", "TRANSFORMATION", "CUST_BREAKDOWN"]
   
-  MNA: ["FREQ", "ADJUSTMENT", "REF_AREA", "COUNTERPART_AREA", 
-         "REF_SECTOR", "COUNTERPART_SECTOR","ACCOUNTING_ENTRY", 
-         "STO", "INSTR_ASSET", "ACTIVITY", "EXPENDITURE", 
-         "UNIT_MEASURE", "PRICES", "TRANSFORMATION"]
+  namq_10_gdp: ["FREQ", "unit", "s_adj", "na_item", "geo"]

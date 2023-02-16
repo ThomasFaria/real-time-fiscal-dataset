@@ -105,7 +105,7 @@ TOR:
 
 GCN:
   Database: namq_10_gdp
-  Series_code: CP_MEUR.NSA.P3_S13.*
+  Series_code: Q.CP_MEUR.NSA.P3_S13.*
   Variable_code: GCN
   Variable_long: "Gov. consumption" 
   STO: P3_S13
@@ -118,11 +118,11 @@ EXN:
   STO: P6
 
 ITN:
-  Database: MNA
-  Series_code: Q.N.*.W0.S1.S1.D.P5.N1G._T._Z.EUR.V.N
+  Database: namq_10_gdp
+  Series_code: Q.CP_MEUR.NSA.P5G.*
   Variable_code: ITN
   Variable_long: "Total investment" 
-  STO: P5
+  STO: P5G
 
 PCN:
   Database: namq_10_gdp
