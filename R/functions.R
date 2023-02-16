@@ -24,13 +24,13 @@ get_dimensions <- function(dataset, data_infos, env) {
 
   dimensions <- split(as.vector(splitted_codes), row(splitted_codes))
   names(dimensions) <- env$Data_structure[[dataset]]
-  
+
   if (dataset == "GFS") {
     dimensions$REF_AREA <- env$Countries
-  }else if (dataset == "namq_10_gdp") {
+  } else if (dataset == "namq_10_gdp") {
     dimensions$geo <- env$Countries
   }
-  
+
   codes <- as.vector(sapply(sublist, function(x) {
     splitted_code <- x$Series_code
   }))
@@ -73,9 +73,8 @@ get_ECB_data <- function(dataset, data_infos, environement) {
 }
 
 get_Eurostat_data <- function(dataset, data_infos, environement) {
-  
   dimensions <- get_dimensions(dataset, data_infos, environement)
-  
+
   data <- rdbnomics::rdb(
     provider_code = "Eurostat",
     dataset_code = dataset,
@@ -87,34 +86,65 @@ get_Eurostat_data <- function(dataset, data_infos, environement) {
       `Geopolitical entity (reporting)`, geo, value
     )
   ][grepl(paste0(dimensions$Codes, collapse = "|"), series_code)]
-  
-  data.table::setnames(data, 
-                       c("dataset_code", "series_code", "indexed_at", "period", "geo", "Geopolitical entity (reporting)", "National accounts indicator (ESA 2010)", "na_item", "value"),
-                       c("Database", "Series_code", "Snapshot_date", "Date", "Country_code", "Country_long", "Name", "STO", "Value"),
-                       skip_absent = TRUE
+
+  data.table::setnames(data,
+    c("dataset_code", "series_code", "indexed_at", "period", "geo", "Geopolitical entity (reporting)", "National accounts indicator (ESA 2010)", "na_item", "value"),
+    c("Database", "Series_code", "Snapshot_date", "Date", "Country_code", "Country_long", "Name", "STO", "Value"),
+    skip_absent = TRUE
   )
-  
+
   sublist <- Filter(function(x) x$Database == dataset, data_infos)
-  
+
   join_dt <- data.table::data.table(do.call(rbind, lapply(sublist, data.frame, stringsAsFactors = FALSE)))
-  
+
   data <- merge(data, join_dt[, .(STO, Variable_code, Variable_long)], by = "STO")
-  
+
   vintage <- get_ECB_vintage()
   data[, ECB_vintage := vintage]
   return(data[, .(
     Database, Series_code, Snapshot_date, ECB_vintage, Country_code, Country_long,
     STO, Name, Variable_code, Variable_long, Date, Value
   )])
-  
 }
 
 get_RTDB <- function(file) {
-  data <- data.table::data.table(arrow::read_csv_arrow(file))
+  data <- data.table::data.table(arrow::read_parquet(file))
   return(data)
 }
 
 append_dataset <- function(list_data) {
   new_db <- data.table::rbindlist(list_data, use.names = TRUE)
   return(new_db)
+}
+
+get_last_available_quarter <- function() {
+  vintage <- get_ECB_vintage()
+  letter <- substr(vintage, 1, 1)
+  year <- as.double(substr(vintage, 2, 3))
+
+  if (letter == "W") {
+    date <- as.Date(paste0("20", year - 1, "-", "07-01"))
+  } else if (letter == "G") {
+    date <- as.Date(paste0("20", year - 1, "-", "10-01"))
+  } else if (letter == "S") {
+    date <- as.Date(paste0("20", year, "-", "01-01"))
+  } else if (letter == "A") {
+    date <- as.Date(paste0("20", year, "-", "04-01"))
+  }
+  return(date)
+}
+
+check_completeness <- function(dataset, data_retrieved, data_infos) {
+  sublist <- Filter(function(x) x$Database == dataset, data_infos)
+  last_date <- get_last_available_quarter()
+  missing_summary <- data_retrieved[Date == last_date, .(N = sum(!is.na(Value))), by = Country_code][(N != length(sublist))]
+
+  if (nrow(missing_summary) != 0) {
+    print(missing_summary)
+    stop(
+      "Data for ", last_date, " is not available for these countries : ",
+      paste(missing_summary[, Country_code], collapse = ", "), "."
+    )
+  }
+  return(missing_summary)
 }

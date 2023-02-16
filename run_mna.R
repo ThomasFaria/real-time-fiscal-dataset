@@ -33,8 +33,8 @@ list(
   ),
   tarchetypes::tar_download(
     name = file,
-    urls = c("https://minio.lab.sspcloud.fr/tfaria/public/real-time-fiscal-database.csv"),
-    paths = "real-time-fiscal-database.csv"
+    urls = c("https://minio.lab.sspcloud.fr/tfaria/public/real-time-fiscal-database.parquet"),
+    paths = "real-time-fiscal-database.parquet"
   ),
   tar_target(
     name = RTDB,
@@ -43,6 +43,10 @@ list(
   tar_target(
     name = data_mna,
     command = get_Eurostat_data("namq_10_gdp", data_info, env),
+  ),
+  tar_target(
+    name = missing_data,
+    command = check_completeness("namq_10_gdp", data_mna, data_info),
   ),
   tar_target(
     name = updated_db,
