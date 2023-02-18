@@ -151,10 +151,10 @@ check_completeness <- function(dataset, data_retrieved, data_infos) {
 
 save_archives <- function() {
   last_date <- get_last_available_quarter()
-  filepath <- paste0("QGFS/archives/", last_date, "/real-time-database.parquet")
+  filepath <- paste0("QGFS/archives/", last_date, "/real-time-fiscal-database.parquet")
 
   aws.s3::put_object(
-    file = "real-time-database.parquet",
+    file = "real-time-fiscal-database.parquet",
     bucket = "tfaria", object = filepath,
     region = ""
   )
@@ -165,7 +165,7 @@ save_updated_database <- function(data) {
   arrow::write_csv_arrow(data, "real-time-fiscal-database-updated.csv")
   arrow::write_parquet(data, "real-time-fiscal-database-updated.parquet")
 
-  filepath <- paste0("public/real-time-database")
+  filepath <- paste0("public/real-time-fiscal-database")
 
   aws.s3::put_object(
     file = "real-time-fiscal-database-updated.csv",
