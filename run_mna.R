@@ -53,13 +53,17 @@ list(
     command = append_dataset(list(RTDB, data_mna))
   ),
   tar_target(
+    name = updated_db_OK,
+    command = remove_duplicated(updated_db)
+  ),
+  tar_target(
     name = archive,
     command = save_archives(),
     format = "file"
   ),
   tar_target(
     name = data_s3,
-    command = save_updated_database(updated_db),
+    command = save_updated_database(updated_db_OK),
     format = "file"
   )
 )

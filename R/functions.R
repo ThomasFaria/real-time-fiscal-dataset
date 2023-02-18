@@ -149,6 +149,15 @@ check_completeness <- function(dataset, data_retrieved, data_infos) {
   return(missing_summary)
 }
 
+remove_duplicated <- function(data) {
+  idx_duplicated <- duplicated(data)
+  if (any(idx_duplicated)) {
+    data <- data[!idx_duplicated,]
+    warning("Some rows have been removed due to duplication.")
+  }
+  return(data)
+}
+
 save_archives <- function() {
   last_date <- get_last_available_quarter()
   filepath <- paste0("QGFS/archives/", last_date, "/real-time-fiscal-database.parquet")
