@@ -86,7 +86,8 @@ get_Eurostat_data <- function(dataset, data_infos, environement) {
       `Geopolitical entity (reporting)`, geo, value
     )
   ][grepl(paste0(dimensions$Codes, collapse = "|"), series_code)]
-
+  
+  data$dataset_code <- "MNA"
   data.table::setnames(data,
     c("dataset_code", "series_code", "indexed_at", "period", "geo", "Geopolitical entity (reporting)", "National accounts indicator (ESA 2010)", "na_item", "value"),
     c("Database", "Series_code", "Snapshot_date", "Date", "Country_code", "Country_long", "Name", "STO", "Value"),
