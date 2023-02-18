@@ -2,13 +2,13 @@ get_ECB_vintage <- function() {
   current_date <- Sys.Date()
   month <- lubridate::month(current_date)
   year <- as.character(lubridate::year(current_date))
-  if (month == 2) {
+  if (month %in% c(1,2)) {
     vintage <- paste0("W", substr(year, 3, 4))
-  } else if (month == 5) {
+  } else if (month %in% c(4,5)) {
     vintage <- paste0("G", substr(year, 3, 4))
-  } else if (month == 8) {
+  } else if (month %in% c(7,8)) {
     vintage <- paste0("S", substr(year, 3, 4))
-  } else if (month == 11) {
+  } else if (month %in% c(10,11)) {
     vintage <- paste0("A", substr(year, 3, 4))
   }
   return(vintage)
