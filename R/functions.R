@@ -148,3 +148,35 @@ check_completeness <- function(dataset, data_retrieved, data_infos) {
   }
   return(missing_summary)
 }
+
+save_archives <- function() {
+  last_date <- get_last_available_quarter()
+  filepath <- paste0("QGFS/archives/", last_date, "/real-time-database.parquet")
+
+  aws.s3::put_object(
+    file = "real-time-database.parquet",
+    bucket = "tfaria", object = filepath,
+    region = ""
+  )
+  return(filepath)
+}
+
+save_updated_database <- function(data) {
+  arrow::write_csv_arrow(data, "real-time-fiscal-database-updated.csv")
+  arrow::write_parquet(data, "real-time-fiscal-database-updated.parquet")
+
+  filepath <- paste0("public/real-time-database")
+
+  aws.s3::put_object(
+    file = "real-time-fiscal-database-updated.csv",
+    bucket = "tfaria", object = paste0(filepath, ".csv"),
+    region = ""
+  )
+
+  aws.s3::put_object(
+    file = "real-time-fiscal-database-updated.parquet",
+    bucket = "tfaria", object = paste0(filepath, ".parquet"),
+    region = ""
+  )
+  return(paste0(filepath, ".parquet"))
+}
