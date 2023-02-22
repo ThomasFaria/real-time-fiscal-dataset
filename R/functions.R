@@ -154,21 +154,21 @@ remove_duplicated <- function(data) {
   idx_duplicated <- duplicated(data)
   if (any(idx_duplicated)) {
     data <- data[!idx_duplicated,]
-    warning("Some rows have been removed due to duplication.")
+    message("Some rows have been removed due to duplication.")
   }
   return(data)
 }
 
 save_archives <- function() {
   last_date <- get_last_available_quarter()
-  filepath <- paste0("QGFS/archives/", last_date, "/real-time-fiscal-database.parquet")
+  filepath <- paste0("/QGFS/archives/", last_date, "/real-time-fiscal-database.parquet")
 
   aws.s3::put_object(
     file = "real-time-fiscal-database.parquet",
     bucket = "tfaria", object = filepath,
     region = ""
   )
-  return(filepath)
+  return("real-time-fiscal-database.parquet")
 }
 
 save_updated_database <- function(data) {
@@ -188,5 +188,5 @@ save_updated_database <- function(data) {
     bucket = "tfaria", object = paste0(filepath, ".parquet"),
     region = ""
   )
-  return(paste0(filepath, ".parquet"))
+  return("real-time-fiscal-database-updated.parquet")
 }
