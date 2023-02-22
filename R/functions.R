@@ -135,7 +135,7 @@ get_last_available_quarter <- function() {
   return(date)
 }
 
-check_completeness <- function(dataset, data_retrieved, data_infos) {
+check_completeness <- function(dataset, data_retrieved, data_infos, env) {
   sublist <- Filter(function(x) x$Database == dataset, data_infos)
   last_date <- get_last_available_quarter()
   missing_summary <- data_retrieved[Date == last_date, .(N = sum(!is.na(Value))), by = Country_code][(N != length(sublist))]
@@ -145,6 +145,14 @@ check_completeness <- function(dataset, data_retrieved, data_infos) {
     stop(
       "Data for ", last_date, " is not available for these countries : ",
       paste(missing_summary[, Country_code], collapse = ", "), "."
+    )
+  }
+  
+  missing_countries <- setdiff(missing_summary$Country_code, env$Countries)
+  if (!purrr::is_empty(missing_countries)) {
+    message(
+      "Data for ", last_date, " is not available for these countries : ",
+      paste(missing_countries, collapse = ", "), "."
     )
   }
   return(missing_summary)

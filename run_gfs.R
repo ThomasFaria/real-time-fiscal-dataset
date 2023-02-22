@@ -46,7 +46,7 @@ list(
   ),
   tar_target(
     name = missing_data,
-    command = check_completeness("GFS", data_gfs, data_info),
+    command = check_completeness("GFS", data_gfs, data_info, env),
   ),
   tar_target(
     name = updated_db,
