@@ -58,7 +58,7 @@ list(
   ),
   tar_target(
     name = archive,
-    command = save_archives(),
+    command = save_archives(file),
     format = "file"
   ),
   tar_target(

@@ -167,16 +167,16 @@ remove_duplicated <- function(data) {
   return(data)
 }
 
-save_archives <- function() {
+save_archives <- function(file) {
   last_date <- get_last_available_quarter()
-  filepath <- paste0("/QGFS/archives/", last_date, "/real-time-fiscal-database.parquet")
+  filepath <- paste0("/QGFS/archives/", last_date, "/", file)
 
   aws.s3::put_object(
-    file = "real-time-fiscal-database.parquet",
+    file = file,
     bucket = "tfaria", object = filepath,
     region = ""
   )
-  return("real-time-fiscal-database.parquet")
+  return(file)
 }
 
 save_updated_database <- function(data) {
