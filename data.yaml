@@ -142,5 +142,5 @@ WGS:
   Database: namq_10_gdp
   Series_code: Q.CP_MEUR.NSA.D1.*
   Variable_code: WGS
-  Variable_long: "Wages and salaries" 
+  Variable_long: "Comp. of employees" 
   STO: D1
