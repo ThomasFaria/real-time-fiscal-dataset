@@ -5,7 +5,7 @@
 )](https://github.com/ThomasFaria/real-time-fiscal-dataset)
 [![MNA](https://img.shields.io/github/actions/workflow/status/ThomasFaria/real-time-fiscal-dataset/pipeline-MNA.yaml?label=MNA&style=flat)](https://github.com/ThomasFaria/real-time-fiscal-dataset)
 
-## Database
+## Database (updated March 2023)
 
 The dataset is automatically updated every quarter. Data are fetch from Government Finance Statistics (GFS) database and from Main National Accounts (MNA) database using dbnomics.
 One can download the data in 2 different formats:
